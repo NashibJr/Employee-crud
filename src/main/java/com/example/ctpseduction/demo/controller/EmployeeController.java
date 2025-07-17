@@ -1,5 +1,7 @@
 package com.example.ctpseduction.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -27,4 +29,10 @@ public class EmployeeController {
 
         return response;
     }    
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/all")
+    List<EmployeeEntity> get() {
+        return service.get();
+    }
 }

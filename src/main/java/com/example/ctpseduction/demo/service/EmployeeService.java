@@ -3,6 +3,8 @@ package com.example.ctpseduction.demo.service;
 import com.example.ctpseduction.demo.entity.EmployeeEntity;
 import com.example.ctpseduction.demo.repository.*;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,5 +17,11 @@ public class EmployeeService {
         EmployeeEntity employee = employeeRepository.save(employeeData);
 
         return employee;
+    }
+
+    public List<EmployeeEntity> get() {
+        List<EmployeeEntity> employees = employeeRepository.findAll();
+
+        return employees;
     }
 }
