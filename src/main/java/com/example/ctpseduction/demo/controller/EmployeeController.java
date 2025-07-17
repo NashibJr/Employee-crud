@@ -51,4 +51,13 @@ public class EmployeeController {
     EmployeeEntity get(@PathVariable String id) {
         return service.getOne(id);
     }
+
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    @PutMapping("/update")
+    Response update(@RequestBody EmployeeEntity employeeData) {
+        EmployeeEntity employee = service.update(employeeData);
+        Response response = new Response(employee, "User successfully updated");
+
+        return response;
+    }
 }

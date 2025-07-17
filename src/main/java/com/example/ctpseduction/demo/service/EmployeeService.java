@@ -37,4 +37,10 @@ public class EmployeeService {
 
         return employee;
     }
+
+    public EmployeeEntity update(EmployeeEntity employeeData) {
+        EmployeeEntity employee = employeeRepository.save(employeeData);
+
+        return employee;
+    }
 }
