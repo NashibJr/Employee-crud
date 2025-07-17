@@ -45,4 +45,10 @@ public class EmployeeController {
 
         return response;
     }
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/employee/{id}")
+    EmployeeEntity get(@PathVariable String id) {
+        return service.getOne(id);
+    }
 }

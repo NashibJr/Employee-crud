@@ -30,4 +30,11 @@ public class EmployeeService {
 
         return "Employee successfully deleted";
     }
+
+    public EmployeeEntity getOne(String id) {
+        EmployeeEntity employee = 
+            employeeRepository.findById(id).orElse(null);
+
+        return employee;
+    }
 }
