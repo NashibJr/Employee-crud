@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-class Employee {
+public class EmployeeEntity {
     @Field("Full name")
     private String name;
 
