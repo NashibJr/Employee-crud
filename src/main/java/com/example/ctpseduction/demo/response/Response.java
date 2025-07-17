@@ -11,6 +11,8 @@ public class Response {
         this.message = message;
     }
 
+    public Response() {}
+
     // set and get employee
     public void setEmployee(EmployeeEntity employee) {
         this.employee = employee;

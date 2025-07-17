@@ -35,4 +35,14 @@ public class EmployeeController {
     List<EmployeeEntity> get() {
         return service.get();
     }
+
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    @DeleteMapping("/delete/{id}")
+    Response deleteEmployee(@PathVariable String id) {
+        String message = service.delete(id);
+        Response response = new Response();
+        response.setMessage(message);
+
+        return response;
+    }
 }

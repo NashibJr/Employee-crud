@@ -24,4 +24,10 @@ public class EmployeeService {
 
         return employees;
     }
+
+    public String delete(String id) {
+        employeeRepository.deleteById(id);
+
+        return "Employee successfully deleted";
+    }
 }
