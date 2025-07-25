@@ -1,5 +1,7 @@
 package com.example.ctpseduction.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -20,5 +22,11 @@ public class UserController {
     @PostMapping("/create")
     Response createUser(@Valid @RequestBody UserEntity userDto) {
         return userService.create(userDto);
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/all")
+    List<UserEntity> get() {
+        return userService.getUsers();
     }
 }

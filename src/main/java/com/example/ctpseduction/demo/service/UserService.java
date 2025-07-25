@@ -1,5 +1,7 @@
 package com.example.ctpseduction.demo.service;
 
+import java.util.*;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,8 +25,12 @@ public class UserService {
         PasswordHash hash = new PasswordHash();
         userDto.setPassword(hash.hashPassword(userDto.getPassword()));
         userRespository.save(userDto);
-        userDto.setPassword(null);
 
         return new Response(userDto, "User succefully created");
+    }
+
+    // get users
+    public List<UserEntity> getUsers() {
+        return userRespository.findAll();
     }
 }

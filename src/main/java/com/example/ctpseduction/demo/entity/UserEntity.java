@@ -4,6 +4,8 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
@@ -22,6 +24,7 @@ public class UserEntity {
     @Indexed(unique = true)
     private String email;
 
+    @JsonIgnore
     @NotBlank(message = "This field is required")
     private String password;
 }
