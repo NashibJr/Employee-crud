@@ -1,30 +1,35 @@
 package com.example.ctpseduction.demo.response;
 
-import com.example.ctpseduction.demo.entity.EmployeeEntity;
-
 public class Response {
-    private EmployeeEntity employee;
+    private Object object;
     private String message;
 
-    public Response(EmployeeEntity employee, String message) {
-        this.employee = employee;
+    public Response(Object object, String message) {
+        this.object = object;
         this.message = message;
     }
 
-    public Response() {}
+    public Response() {
+    }
+
+    public Response(String message) {
+        this.message = message;
+    }
 
     // set and get employee
-    public void setEmployee(EmployeeEntity employee) {
-        this.employee = employee;
+    public void setObject(Object object) {
+        this.object = object;
     }
-    public EmployeeEntity getEmploy() {
-        return this.employee;
+
+    public Object getEmploy() {
+        return this.object;
     }
 
     // set and get message
     public void setMessage(String message) {
         this.message = message;
     }
+
     public String getMessage() {
         return this.message;
     }
