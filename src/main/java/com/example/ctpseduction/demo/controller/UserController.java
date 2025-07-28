@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import com.example.ctpseduction.demo.Dtos.LoginDto;
 import com.example.ctpseduction.demo.entity.UserEntity;
 import com.example.ctpseduction.demo.response.Response;
 import com.example.ctpseduction.demo.service.UserService;
@@ -28,5 +29,17 @@ public class UserController {
     @GetMapping("/all")
     List<UserEntity> get() {
         return userService.getUsers();
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/{id}")
+    UserEntity get(@PathVariable String id) {
+        return userService.getUser(id);
+    }
+
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    @PostMapping("/auth/login")
+    Response login(@RequestBody LoginDto loginDto) {
+        return userService.login(loginDto);
     }
 }
